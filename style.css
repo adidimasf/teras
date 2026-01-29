@@ -1,0 +1,226 @@
+/* --- VARIABLES --- */
+:root {
+    /* Palette: Tenang, Earthy, Modern */
+    --bg-color: #F9F8F4;       /* Cream kertas tua, sangat lembut di mata */
+    --text-primary: #2A2F2B;   /* Hampir hitam, ada unsur hijau hutan */
+    --text-secondary: #6B7068; /* Abu-abu batu */
+    --accent: #8C9A8E;         /* Sage Green redup */
+    --border: #E6E2D8;         /* Garis tipis warna pasir */
+    
+    /* Typography */
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --container-width: 720px; /* Sempit agar fokus seperti membaca buku */
+    --spacing-lg: 100px;
+    --spacing-md: 60px;
+    --spacing-sm: 24px;
+}
+
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* --- LAYOUT UTILITY --- */
+main {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.tagline {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.intro-text {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.headline {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.sub-headline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 90%;
+}
+
+/* --- DIRECTORY CARDS --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Kolom */
+    gap: 24px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-color: var(--accent);
+}
+
+.card-icon {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* --- MINI ABOUT --- */
+.simple-about {
+    margin-bottom: var(--spacing-lg);
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 40px;
+    width: 50px; /* Garis pendek estetis */
+}
+
+.simple-about p {
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.philosophy {
+    color: var(--text-secondary) !important;
+    font-family: var(--font-serif);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* --- ANIMATION UTILITY --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    :root {
+        --spacing-lg: 60px;
+        --spacing-md: 40px;
+    }
+    
+    .headline {
+        font-size: 1.6rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    }
+}
